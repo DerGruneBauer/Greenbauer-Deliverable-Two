@@ -1,55 +1,31 @@
+let rain = prompt("How many inches of rain fell?");
+let inches = parseInt(rain);
 
-let Rain = prompt("How many inches of rain fell?");
-let Asteriks = ' ';
-let Inches = parseInt(Rain)
-
-for (let i = 1; i <= Inches; i++ ){
-    Asteriks += i; 
-   }
-
-for (let i = 0; i < Inches; i++){
-    Asteriks = Asteriks.replace(Asteriks[i], "*");
+let asterisks = '';
+for (let index = 0; index < inches; index++) {
+  asterisks += '*'
 }
-   console.log(Asteriks);
+console.log('Rain:', asterisks)
 
+// easier way to generate asterisks
+// let asterisks = "*".repeat(inches);
+// console.log('Rain', asterisks);
 
-let Yield = 50;
-if (Inches >= 20){
-    Yield = (50*.9);
-    //yield goes down by 10%
-    //20in or more
-} else if (Inches < 10){
-    Yield = (50*.8);
-    //yield goes down by 20%
-    //less than 10in
-} else if (Inches >= 10 && Inches <= 19){
-    //Yield is naturally 50
-    Yield = 50;
-}
-//console.log(Yield);
-
-let FertilizerYN = prompt("Did you use fertilizer?");
-
-if (FertilizerYN == 'yes'){
-    FertilizerYN = 'True';
-} else if (FertilizerYN == 'no') {
-        FertilizerYN = 'False';
+let yield = 50;
+if (inches >= 20) {
+  yield = yield - yield * 0.1;
+} else if (inches < 10) {
+  yield = yield - yield * 0.2;
 }
 
-if (FertilizerYN == 'True'){
-    let FertilizerPR = prompt("Did you use regular or premium fertilizer?");
-
-    if (FertilizerPR == 'regular'){
-        Yield = (Yield*1.1);
-        //Reg Fert add 10% to yield
-    } else if (FertilizerPR == 'premium'){
-        Yield = (Yield*1.15);
-        //Prem Fert add 15% to yield
-    }
-
-} else if (FertilizerYN == "False"){
-    Yield = Yield;
+let fertilizer = prompt("Did you use fertilizer?");
+if (fertilizer === "yes") {
+  let grade = prompt("Did you use regular or premium fertilizer?");
+  if (grade === "regular") {
+    yield = yield + yield * 0.1;
+  } else if (grade === "premium") {
+    yield = yield + yield * 0.15;
+  }
 }
-console.log('The yield should be ' + Yield + ' bushels per acre.');
 
-//console.log(final yield/result)
+console.log(`The yield should be ${yield} bushels per acre.`);
