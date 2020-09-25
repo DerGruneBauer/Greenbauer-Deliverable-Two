@@ -5,7 +5,7 @@ let asterisks = '';
 for (let index = 0; index < inches; index++) {
   asterisks += '*'
 }
-console.log('Rain', asterisks)
+console.log('Rain:', asterisks)
 
 // easier way to generate asterisks
 // let asterisks = "*".repeat(inches);
